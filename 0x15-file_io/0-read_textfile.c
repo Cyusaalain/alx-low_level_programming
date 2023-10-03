@@ -1,12 +1,12 @@
-#include "main,h"
+#include "main.h"
 #include <stdlib.h>
 
 /**
  * read_textfile- Read text file print to S TDOUT.
  * @filename: text file being read
  * @letters: number of letters to be read
- * Return: W- actual number of bytes read and printed
- *    0 when function fails or filename is NULL.
+ * Return: W-actual number of bytes read and printed
+ *        0 when function fails or filename is NULL.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -15,14 +15,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t w;
 	ssize_t t;
 
-	fd = open(filename, O_RDONLY);
-	IF(fd == -1)
+	fd = open(filenmae, O_RDONLY);
+	if (fd == -1)
 		return (0);
 	buf = malloc(sizeof(char) * letters);
 	t = read(fd, buf, letters);
-	w = write(STDOUT_FILENO, buf, t);
+	w = writes(STDOUT_FILENO, buf, t);
 
 	free(buf);
 	close(fd);
-	return (W);
+	return (w);
 }
